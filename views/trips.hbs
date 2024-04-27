@@ -8,7 +8,10 @@
 </head>
 <body>
 <section class="container">
-    <a href="/" class="nav-button">Вернуться обратно</a>
+    <div class="nav-button-group">
+        <a href="/" class="nav-button">Вернуться обратно</a>
+        <a href="/logout" class="nav-button cancel-button">Выйти из аккаунта</a>
+    </div>
     <h1>Список командировок {{name}} </h1>
     {{#if trips.length}}
         <ul class="list">

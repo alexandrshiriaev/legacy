@@ -10,7 +10,7 @@ function dateToString(date) {
 async function getTrips(req, res) {
     if (req.worker === null) return res.redirect("/login");
     if (req.worker.role) return res.redirect("/workers");
-    const trips = getAllTrips(req.worker.id);
+    const trips = await getAllTrips(req.worker.id);
     res.render("trips.hbs", {
         name: req.worker.name,
         trips: trips.map(trip => {
@@ -31,8 +31,8 @@ async function getTrip(req, res) {
     const tripId = parseInt(req.params.tripId);
     if (isNaN(tripId)) return res.redirect("/");
     const trip = await getTripById(tripId);
-    if (!req.worker.role && !(req.worker.id === trip.workerId)) return res.redirect("/");
-    const worker = await getWorkerById(trip.workerId);
+    console.log(req.worker.id, trip.workerid)
+    if (!req.worker.role && !(req.worker.id === trip.workerid)) return res.redirect("/");
     return res.render("trip.hbs", {
         datestart: dateToString(trip.datestart),
         dateend: dateToString(trip.dateend),

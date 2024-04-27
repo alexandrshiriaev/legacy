@@ -177,6 +177,28 @@ body {
   border-radius: 8px;
 }
 
+.nav-button-group {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+    .nav-button {
+      text-align: center;
+      padding: 1rem 1rem;
+    }
+  }
+}
+
+.file-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .nav-button:hover {
   background: #6f61e7;
 }
@@ -189,6 +211,7 @@ body {
 .cancel-button:hover {
   background: #6b6a6a;
 }
+
 
 
 

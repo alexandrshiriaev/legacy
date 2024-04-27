@@ -27,13 +27,11 @@ async function createNewWorker(name, login, password) {
 }
 
 async function getWorkerById(workerId) {
-    console.log(workerId)
     const client = await pool.connect();
     const queryText = 'SELECT * FROM workers WHERE id = $1';
     const result = await client.query(queryText, [
         workerId
     ]);
-    console.log(result)
     client.release();
     return result.rows[0];
 }

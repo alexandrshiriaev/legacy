@@ -10,7 +10,10 @@
 </head>
 <body>
 <section class="container">
-    <a href="/" class="nav-button">Вернуться обратно</a>
+    <div class="nav-button-group">
+        <a href="/" class="nav-button">Вернуться обратно</a>
+        <a href="/logout" class="nav-button cancel-button">Выйти из аккаунта</a>
+    </div>
     <h2>
         Поездка {{datestart}} - {{dateend}}
     </h2>
@@ -18,7 +21,7 @@
         <h3>
             Добавить чеки
         </h3>
-        <form>
+        <form class="file-form-group">
             <input type="file" name="files" class="file-input">
             <button class="button" type="submit">Загрузить</button>
         </form>
