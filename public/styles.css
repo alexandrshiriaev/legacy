@@ -1,0 +1,147 @@
+@charset "UTF-8";
+@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+*, html {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif; }
+
+html {
+  background: #f8fafc; }
+
+body {
+  font-family: Arial, sans-serif; }
+
+.input {
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: .5rem; }
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 1rem; }
+  @media (max-width: 1280px) {
+    .container {
+      padding: 0 1rem; } }
+  @media (max-width: 640px) {
+    .container {
+      padding: 0 2rem; } }
+
+.button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5643fa;
+  color: white;
+  cursor: pointer;
+  transition: .3s all;
+  width: fit-content; }
+
+.button:hover {
+  background-color: #7364f8; }
+
+@media (max-width: 1024px) {
+  .add-button {
+    width: 100%; } }
+
+.list {
+  list-style: none;
+  padding: 8px;
+  border-radius: 6px;
+  background: #fff; }
+  .list .list__el {
+    display: block;
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 12px 12px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    background: #fff;
+    transition: .3s all;
+    color: #1F2937;
+    font-weight: 500; }
+  .list .list__el:last-of-type {
+    margin-bottom: 0; }
+  .list .list__el:hover {
+    background: #f3f4f6; }
+
+.hidden {
+  display: none; }
+
+.form-group {
+  margin-bottom: 15px; }
+  .form-group label {
+    display: block; }
+  .form-group .input {
+    width: 100%; }
+
+.login {
+  padding: 2rem; }
+  .login .login-form {
+    max-width: 30rem;
+    margin: 50px auto;
+    font-size: 15px; }
+    .login .login-form h2 {
+      text-align: center;
+      color: #333; }
+  .login .login-button {
+    width: 100%; }
+
+#modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* Убедитесь, что модальное окно находится над остальными элементами */ }
+  #modal #modal-content {
+    padding: 2rem 4rem 0;
+    max-width: 50rem;
+    background: white;
+    border-radius: 12px;
+    width: 50%;
+    /* или другой подходящий размер */
+    height: 50%; }
+    @media (max-width: 1200px) {
+      #modal #modal-content {
+        max-width: none;
+        height: 100%;
+        width: 100%; } }
+  #modal .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; }
+  #modal .button-group {
+    display: flex;
+    gap: 1rem; }
+    @media (max-width: 860px) {
+      #modal .button-group {
+        flex-direction: column; }
+        #modal .button-group .button {
+          width: 100%; } }
+    #modal .button-group .button {
+      padding: 1rem 1.5rem; }
+
+.nav-button {
+  background: #5643fa;
+  color: #fff;
+  font-weight: 500;
+  transition: .3s all;
+  padding: 6px 8px;
+  text-decoration: none;
+  border-radius: 8px; }
+
+.nav-button:hover {
+  background: #6f61e7; }
+
+.cancel-button {
+  background: #545454;
+  transition: .3s all; }
+
+.cancel-button:hover {
+  background: #6b6a6a; }

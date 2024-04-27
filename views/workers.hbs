@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список сотрудников</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<section class="container workers">
+    <h1>Список сотрудников</h1>
+    <input type="text" id="search" class="input" placeholder="Введите имя сотрудника...">
+    <ul class="list">
+        {{#each workers}}
+            <a class="list__el" href="/workers/{{this.id}}">{{this.name}}</a>
+        {{/each}}
+    </ul>
+    <button id="add-worker" class="button add-button">Добавить нового сотрудника</button>
+</section>
+
+<div id="modal" style="display: none;">
+    <div id="modal-content">
+        <h2>
+            Добавить нового сотрудника
+        </h2>
+        <form id="add-worker-form" action="/workers" method="post">
+            <div class="form-group">
+                <div>
+                    <label for="worker-login">Логин:</label>
+                    <input type="text" class="input" id="worker-login" name="login" required>
+                </div>
+                <div>
+                    <label for="worker-name">Имя:</label>
+                    <input type="text" class="input" id="worker-name" name="name" required>
+                </div>
+                <div>
+                    <label for="worker-password">Пароль:</label>
+                    <input type="password" class="input" id="worker-password" name="password" required>
+                </div>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="button">Добавить</button>
+                <button type="button" class="button cancel-button" id="modal-close">Отмена</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="worker.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузка QR-кода</title>
+</head>
+<body>
+    <h1>Загрузите изображение QR-кода</h1>
+    <input type="file" id="qrInput" accept="image/*" />
+    <button onclick="sendQR()">Отправить QR-код</button>
+    <div class="b-res">Результаты будут отображены здесь после обработки.</div>
+
+    <script>
+        function sendQR() {
+            const fileInput = document.getElementById('qrInput');
+            if (fileInput.files.length === 0) {
+                alert('Пожалуйста, выберите файл.');
+                return;
+            }
+
+            var formData = new FormData();
+            formData.append('qrfile', fileInput.files[0]);
+            formData.append('token', '27006.RJiJ7BG3btDJeImNG');
+
+            const options = {
+                method: 'POST',
+                body: formData
+            };
+
+            fetch('https://proverkacheka.com/api/v1/check/get', options)
+                .then(response => response.json())
+                .then(response => {
+                    if (response.data && response.data.html) {
+                        const date = parseHtmlResponse(response.data.html, /(\d{2}\.\d{2}\.\d{4} \d{2}:\d{2})/);
+                        const sum = findMostFrequentSum(response.data.html);
+                        document.querySelector('.b-res').innerHTML = `Дата: ${date}<br>Сумма: ${sum}`;
+                    } else {
+                        document.querySelector('.b-res').textContent = 'Ошибка: Нет данных';
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.querySelector('.b-res').textContent = 'Ошибка: ' + err.message;
+                });
+        }
+
+        function parseHtmlResponse(html, regex) {
+            const match = html.match(regex);
+            return match ? match[0] : 'не найдено';
+        }
+
+        function findMostFrequentSum(html) {
+            const regex = /\b\d+\.\d{2}\b/g;
+            let matches = html.match(regex);
+            if (!matches) return 'не найдено';
+
+            const frequency = {};
+            matches.forEach((match) => {
+                frequency[match] = (frequency[match] || 0) + 1;
+            });
+
+            let mostFrequentSum = null;
+            let maxCount = 0;
+            for (let sum in frequency) {
+                if (frequency[sum] > maxCount) {
+                    maxCount = frequency[sum];
+                    mostFrequentSum = sum;
+                }
+            }
+            return mostFrequentSum;
+        }
+    </script>
+</body>
+</html>

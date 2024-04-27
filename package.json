@@ -1,0 +1,25 @@
+{
+  "name": "luty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "css": "node-sass .\\public\\styles.scss .\\public\\styles.css",
+    "css:watch": "node-sass .\\public\\styles.scss -w .\\public\\styles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2",
+    "hbs": "^4.2.0",
+    "node-sass": "^9.0.0",
+    "pg": "^8.11.5",
+    "uuid": "^9.0.1"
+  }
+}

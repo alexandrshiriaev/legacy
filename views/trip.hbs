@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Командировка</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<section class="container">
+    <a href="/" class="nav-button">Вернуться обратно</a>
+    <h2>
+        Поездка {{datestart}} - {{dateend}}
+    </h2>
+    {{#unless role }}
+        <h3>
+            Добавить чеки
+        </h3>
+        <form>
+            <input type="file" name="files" class="file-input">
+            <button class="button" type="submit">Загрузить</button>
+        </form>
+    {{/unless}}
+    {{#if role}}
+        <div class="button-group">
+            <button class="button cancel-button">Скачать архив чеков</button>
+            <button class="button">Составить отчёт</button>
+        </div>
+    {{/if}}
+</section>
+</body>
+</html>
